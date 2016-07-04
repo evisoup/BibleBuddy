@@ -42,12 +42,6 @@
                                     <action selector="todayMonthView" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eal-6j-4IX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable showing days out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-8G-fgL">
-                                <rect key="frame" x="20" y="556" width="224" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucX-go-wCw">
                                 <rect key="frame" x="531" y="549" width="51" height="31"/>
                                 <connections>
@@ -110,6 +104,25 @@
                                     <action selector="removeCircleAndDot:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dB7-B4-xgU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable showing days out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-8G-fgL">
+                                <rect key="frame" x="20" y="556" width="224" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogu-4z-wdX">
+                                <rect key="frame" x="20" y="457" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-ze-N7s">
+                                <rect key="frame" x="194" y="486" width="65" height="30"/>
+                                <state key="normal" title="CHECKIN"/>
+                                <connections>
+                                    <action selector="checkIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ndj-Vz-jot"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-UY-QHC" customClass="CVCalendarView" customModule="Ctest" customModuleProvider="target">
                                 <rect key="frame" x="20" y="76" width="560" height="300"/>
                                 <constraints>
@@ -127,6 +140,7 @@
                         <constraints>
                             <constraint firstItem="T1w-UY-QHC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="1TS-li-VrB"/>
                             <constraint firstItem="ZPD-eB-kRA" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="59J-xp-B4Q"/>
+                            <constraint firstItem="FwJ-ze-N7s" firstAttribute="leading" secondItem="naL-aC-YXb" secondAttribute="trailing" constant="10" id="Afi-os-vxP"/>
                             <constraint firstItem="oRb-Wa-JqA" firstAttribute="leading" secondItem="t2y-Uz-Mr2" secondAttribute="leading" id="Cnh-zh-egW"/>
                             <constraint firstItem="ucX-go-wCw" firstAttribute="trailing" secondItem="T1w-UY-QHC" secondAttribute="trailing" id="GLH-be-aOi"/>
                             <constraint firstItem="xf5-AN-qLk" firstAttribute="centerX" secondItem="ZPD-eB-kRA" secondAttribute="centerX" id="H78-2a-9fG"/>
@@ -136,6 +150,7 @@
                             <constraint firstItem="T1w-UY-QHC" firstAttribute="leading" secondItem="ZPD-eB-kRA" secondAttribute="leading" id="Lhg-3p-WNM"/>
                             <constraint firstItem="T1w-UY-QHC" firstAttribute="top" secondItem="ZPD-eB-kRA" secondAttribute="bottom" constant="8" symbolic="YES" id="NW4-zP-cws"/>
                             <constraint firstItem="ecA-uZ-EAG" firstAttribute="trailing" secondItem="t2y-Uz-Mr2" secondAttribute="trailing" id="RKD-AT-yeW"/>
+                            <constraint firstItem="FwJ-ze-N7s" firstAttribute="baseline" secondItem="naL-aC-YXb" secondAttribute="baseline" id="S0p-Xd-c6g"/>
                             <constraint firstItem="izK-WF-YDE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TxE-T0-Cja"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lzX-jt-Rop" secondAttribute="trailing" id="UC8-fn-77M"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="naL-aC-YXb" secondAttribute="bottom" constant="84" id="V9q-TN-CyI"/>
@@ -146,11 +161,13 @@
                             <constraint firstItem="Hz3-8S-aMR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ef0-ac-Q7Y"/>
                             <constraint firstItem="HF3-fY-vSc" firstAttribute="trailing" secondItem="ZPD-eB-kRA" secondAttribute="trailing" id="eh5-Dv-ORM"/>
                             <constraint firstItem="HF3-fY-vSc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="g3v-dm-1Jg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ogu-4z-wdX" secondAttribute="leading" id="k3p-rZ-0fp"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lzX-jt-Rop" secondAttribute="bottom" constant="84" id="mRD-kd-jL8"/>
                             <constraint firstItem="izK-WF-YDE" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="noP-lz-cVf"/>
                             <constraint firstItem="T1w-UY-QHC" firstAttribute="trailing" secondItem="ZPD-eB-kRA" secondAttribute="trailing" id="oay-Ad-lAp"/>
                             <constraint firstAttribute="bottom" secondItem="l1z-8G-fgL" secondAttribute="bottom" constant="20" symbolic="YES" id="r7P-Sz-8Xp"/>
                             <constraint firstAttribute="centerX" secondItem="t2y-Uz-Mr2" secondAttribute="centerX" constant="-0.5" id="tzu-uz-26Y"/>
+                            <constraint firstItem="naL-aC-YXb" firstAttribute="top" secondItem="Ogu-4z-wdX" secondAttribute="bottom" constant="8" symbolic="YES" id="uwP-zA-7pc"/>
                             <constraint firstItem="ecA-uZ-EAG" firstAttribute="top" secondItem="T1w-UY-QHC" secondAttribute="bottom" constant="10" id="vgQ-ES-YAd"/>
                             <constraint firstItem="ucX-go-wCw" firstAttribute="bottom" secondItem="l1z-8G-fgL" secondAttribute="bottom" id="zIk-C3-01y"/>
                         </constraints>
@@ -160,11 +177,12 @@
                         <outlet property="daysOutSwitch" destination="ucX-go-wCw" id="jRQ-lm-HaD"/>
                         <outlet property="menuView" destination="ZPD-eB-kRA" id="zjt-49-rDh"/>
                         <outlet property="monthLabel" destination="xf5-AN-qLk" id="fGT-h7-JSE"/>
+                        <outlet property="selection" destination="Ogu-4z-wdX" id="MGL-0H-jmS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18" y="293"/>
+            <point key="canvasLocation" x="4" y="260"/>
         </scene>
     </scenes>
     <resources>

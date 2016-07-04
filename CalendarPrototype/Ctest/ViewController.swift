@@ -8,12 +8,15 @@
 
 import UIKit
 
+
+@IBDesignable
 class ViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var daysOutSwitch: UISwitch!
+    @IBOutlet weak var selection: UILabel!
     
     var shouldShowDaysOut = true
     var animationFinished = true
@@ -28,6 +31,16 @@ class ViewController: UIViewController {
         monthLabel.text = CVDate(date: NSDate()).globalDescription
     }
     
+    @IBAction func checkIn(sender: AnyObject) {
+        if let dayView = selectedDay {
+//            calendarView.contentController.removeCircleLabel(dayView)
+//            calendarView.contentController.removeDotViews(dayView)
+            calendarView.contentController.meTrying(dayView)
+
+            
+        }
+    }
+   
     @IBAction func removeCircleAndDot(sender: AnyObject) {
         if let dayView = selectedDay {
             calendarView.contentController.removeCircleLabel(dayView)
@@ -72,9 +85,12 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     }
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
+        selection.text = dayView.date.commonDescription
         print("\(dayView.date.commonDescription) is selected!")
         selectedDay = dayView
     }
+    ///这里有printing
+    
     
     func presentedDateUpdated(date: CVDate) {
         if monthLabel.text != date.globalDescription && self.animationFinished {
@@ -118,24 +134,41 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
         return true
     }
     
+    
+    //启动的时候就是用到
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
         let day = dayView.date.day
+//       me
+//        print("look at me ")
         let randomDay = Int(arc4random_uniform(31))
-        if day == randomDay {
-            return true
-        }
+//        if day == randomDay {
+//            return true
+//        }
+//        
+//        return false
+        return true
         
-        return false
+//        let day = dayView.date.day //To get the Day from the Calender
+//        
+//        //Check our specific date with the dates on calender
+//        if day == CVDate(date: NSDate).day{
+//            return true
+//        } 
+//        return false
     }
     
+    //启动的时候就是用到
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
-        
+        print("look at me 2")
         let red = CGFloat(arc4random_uniform(600) / 255)
         let green = CGFloat(arc4random_uniform(600) / 255)
         let blue = CGFloat(arc4random_uniform(600) / 255)
         
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        
+        //me
+        let myC = UIColor.redColor()
+        return [myC]
+        //
         let numberOfDots = Int(arc4random_uniform(3) + 1)
         switch(numberOfDots) {
         case 2:
@@ -147,12 +180,17 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
         }
     }
     
+    
+    
+    
+    
     func dotMarker(shouldMoveOnHighlightingOnDayView dayView: CVCalendarDayView) -> Bool {
         return true
     }
     
+    //启动的时候就是用到
     func dotMarker(sizeOnDayView dayView: DayView) -> CGFloat {
-        return 13
+        return 15
     }
     
     
