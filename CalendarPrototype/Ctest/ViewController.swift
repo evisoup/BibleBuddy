@@ -139,6 +139,7 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
         let day = dayView.date.day
         let month = dayView.date.month
+        let year = dayView.date.year
 //       me
 //        print("look at me ")
         let randomDay = Int(arc4random_uniform(31))
@@ -151,19 +152,12 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
 //                if day == 15 {
 //                    return false
 //                }
-        if month == 11 {
+        if year == 2016 {
             return false
         }
 
         return true
         
-//        let day = dayView.date.day //To get the Day from the Calender
-//        
-//        //Check our specific date with the dates on calender
-//        if day == CVDate(date: NSDate).day{
-//            return true
-//        } 
-//        return false
     }
     
     //启动的时候就是用到
