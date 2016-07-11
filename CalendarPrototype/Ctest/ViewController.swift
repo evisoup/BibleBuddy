@@ -86,7 +86,7 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         selection.text = dayView.date.commonDescription
-        print("\(dayView.date.commonDescription) is selected!")
+        print("\(dayView.date.convertedDate()   )  is selected!")
         selectedDay = dayView
     }
     ///这里有printing
