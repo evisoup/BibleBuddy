@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o6F-OB-cbY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o6F-OB-cbY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315" y="-337"/>
+            <point key="canvasLocation" x="-1669" y="266"/>
         </scene>
         <!--Login-->
         <scene sceneID="Kc5-AI-sVS">
@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlq-hF-DpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1650" y="-852"/>
+            <point key="canvasLocation" x="-1732" y="-1284"/>
         </scene>
         <!--Quote-->
         <scene sceneID="EzF-2D-Q73">
@@ -283,10 +283,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quote" id="CZh-cz-xiy"/>
+                    <navigationItem key="navigationItem" id="p2u-79-CWX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PU-xj-SU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1600" y="701"/>
+            <point key="canvasLocation" x="-2556" y="1695"/>
         </scene>
         <!--Group-->
         <scene sceneID="gya-Nb-lqY">
@@ -305,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P7e-JD-cZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="701"/>
+            <point key="canvasLocation" x="-1586" y="1941"/>
         </scene>
         <!--Setting-->
         <scene sceneID="2Vv-Yx-iEB">
@@ -318,13 +319,22 @@
                     <view key="view" contentMode="scaleToFill" id="Xgm-ZV-HBv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezT-sS-fp0">
+                                <rect key="frame" x="276" y="285" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <segue destination="aNQ-qJ-5bZ" kind="modal" id="DVQ-N3-sWr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" id="2zU-eb-qqO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ku2-OJ-eWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="178"/>
+            <point key="canvasLocation" x="-975" y="-1185"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wWG-aB-RQm">
@@ -355,7 +365,7 @@
                                 <rect key="frame" x="279" y="430" width="42" height="30"/>
                                 <state key="normal" title="Log in"/>
                                 <connections>
-                                    <segue destination="ETg-ZY-xQp" kind="show" id="JUJ-u9-i9T"/>
+                                    <segue destination="ETg-ZY-xQp" kind="modal" identifier="enter" id="0Ne-ao-c8W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -373,12 +383,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZG-Ln-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-915" y="-897"/>
+            <point key="canvasLocation" x="-1675" y="-569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mXi-GZ-87V">
             <objects>
                 <tabBarController id="ETg-ZY-xQp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XGY-oA-Sdt"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="R8b-P8-2tb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -393,7 +404,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8v-WX-7RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1302" y="-61"/>
+            <point key="canvasLocation" x="-2680" y="239"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="37U-4l-hGM">
@@ -417,5 +428,8 @@
     <resources>
         <image name="present-100" width="33" height="33"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DVQ-N3-sWr"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.25337347850000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -56,6 +56,19 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         calendarView.commitCalendarViewUpdate()
+        
+        //change week/month view mode based on screen size
+        if UIScreen.mainScreen().bounds.size.height <= 568.0 {
+            calendarView.changeMode(.WeekView)
+        }
+        
+        //
+        calendarView.changeDaysOutShowingState(false)
+        shouldShowDaysOut = false
+        print("wattt???")
+        
+        
+
         menuView.commitMenuViewUpdate()
     }
 }
