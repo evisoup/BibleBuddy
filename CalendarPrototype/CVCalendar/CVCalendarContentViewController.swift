@@ -92,7 +92,7 @@ extension CVCalendarContentViewController {
 extension CVCalendarContentViewController {
     public func meTrying(dayView: CVCalendarDayView) {
 
-        dayView.setupDotMarker()
+        //dayView.setupDotMarker()
         dayView.myDot()
         //dayView.preliminarySetup()
 

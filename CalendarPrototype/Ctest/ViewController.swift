@@ -15,11 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var daysOutSwitch: UISwitch!
+    //@IBOutlet weak var daysOutSwitch: UISwitch!
     @IBOutlet weak var selection: UILabel!
+    
+    
+
+
     
     var shouldShowDaysOut = true
     var animationFinished = true
+    var flag = 10
     
     var selectedDay:DayView!
     
@@ -32,6 +37,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func checkIn(sender: AnyObject) {
+        flag += 1
         if let dayView = selectedDay {
 //            calendarView.contentController.removeCircleLabel(dayView)
 //            calendarView.contentController.removeDotViews(dayView)
@@ -61,12 +67,6 @@ class ViewController: UIViewController {
         if UIScreen.mainScreen().bounds.size.height <= 568.0 {
             calendarView.changeMode(.WeekView)
         }
-        
-        //
-        calendarView.changeDaysOutShowingState(false)
-        shouldShowDaysOut = false
-        print("wattt???")
-        
         
 
         menuView.commitMenuViewUpdate()
@@ -154,8 +154,8 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
         let month = dayView.date.month
         let year = dayView.date.year
 //       me
-//        print("look at me ")
-        let randomDay = Int(arc4random_uniform(31))
+        print("look at me ")
+//        let randomDay = Int(arc4random_uniform(31))
 //        if day == randomDay {
 //            return true
 //        }
@@ -165,17 +165,51 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
 //                if day == 15 {
 //                    return false
 //                }
-        if year == 2016 {
-            return false
+        if month == 7 && day >= 5 && day <= 18 {
+            return true
         }
 
-        return true
+        return false
         
     }
     
     //启动的时候就是用到
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
         print("look at me 2")
+        let red = CGFloat(arc4random_uniform(600) / 255)
+        let green = CGFloat(arc4random_uniform(600) / 255)
+        let blue = CGFloat(arc4random_uniform(600) / 255)
+        
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        //me
+        
+        let day = dayView.date.day
+        let month = dayView.date.month
+        let year = dayView.date.year
+        
+        if month == 7 && day >= 10 && day <= flag {
+            let myC = UIColor.greenColor()
+            return [myC]
+        } else {
+            let myC = UIColor.redColor()
+            return [myC]
+        }
+    
+        
+        //
+        let numberOfDots = Int(arc4random_uniform(3) + 1)
+        switch(numberOfDots) {
+        case 2:
+            return [color, color]
+        case 3:
+            return [color, color, color]
+        default:
+            return [color] // return 1 dot
+        }
+    }
+    
+    func dotMarker(colorOnDayViewChecked dayView: CVCalendarDayView) -> [UIColor] {
+        print("look at me 3")
         let red = CGFloat(arc4random_uniform(600) / 255)
         let green = CGFloat(arc4random_uniform(600) / 255)
         let blue = CGFloat(arc4random_uniform(600) / 255)
@@ -195,8 +229,6 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
             return [color] // return 1 dot
         }
     }
-    
-    
     
     
     
@@ -297,15 +329,15 @@ extension ViewController: CVCalendarViewAppearanceDelegate {
 // MARK: - IB Actions
 
 extension ViewController {
-    @IBAction func switchChanged(sender: UISwitch) {
-        if sender.on {
-            calendarView.changeDaysOutShowingState(false)
-            shouldShowDaysOut = true
-        } else {
-            calendarView.changeDaysOutShowingState(true)
-            shouldShowDaysOut = false
-        }
-    }
+//    @IBAction func switchChanged(sender: UISwitch) {
+//        if sender.on {
+//            calendarView.changeDaysOutShowingState(false)
+//            shouldShowDaysOut = true
+//        } else {
+//            calendarView.changeDaysOutShowingState(true)
+//            shouldShowDaysOut = false
+//        }
+//    }
     
     @IBAction func todayMonthView() {
         calendarView.toggleCurrentDayView()
