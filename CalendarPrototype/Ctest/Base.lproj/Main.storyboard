@@ -310,12 +310,20 @@
                                     <segue destination="aNQ-qJ-5bZ" kind="modal" id="DVQ-N3-sWr"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-q7-ktq">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-q7-ktq">
                                 <rect key="frame" x="20" y="111" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="41O-af-kbL" id="fzv-r0-rES"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NDt-nF-WLJ">
+                                <rect key="frame" x="20" y="181" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="41O-af-kbL" id="uIc-lW-SUe"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -327,12 +335,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" id="2zU-eb-qqO"/>
                     <connections>
+                        <outlet property="endDate" destination="NDt-nF-WLJ" id="IGB-Ra-VoE"/>
                         <outlet property="textField_Date" destination="NJ2-q7-ktq" id="vOq-sy-8hH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ku2-OJ-eWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3158" y="680"/>
+            <point key="canvasLocation" x="-3154" y="690"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wWG-aB-RQm">
