@@ -14,14 +14,37 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     
     
 
-    @IBOutlet weak var textField_Date: UITextField!
-
-    
+    @IBOutlet weak var beginDate: UITextField!
     @IBOutlet weak var endDate: UITextField!
     
-    
+    @IBOutlet weak var totalDays: UILabel!
+    @IBOutlet weak var planBegin: UILabel!
+    @IBOutlet weak var planEnd: UILabel!
     
     var datePicker : UIDatePicker!
+    var beginRecord : NSDate!
+    var endRecord: NSDate!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func pickUpDate(textField : UITextField){
         
@@ -61,11 +84,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         let dateFormatter1 = NSDateFormatter()
         dateFormatter1.dateStyle = .MediumStyle
         dateFormatter1.timeStyle = .NoStyle
-        textField_Date.text = dateFormatter1.stringFromDate(datePicker.date)
-        textField_Date.resignFirstResponder()
+        beginDate.text = dateFormatter1.stringFromDate(datePicker.date)
+        
+        beginRecord = datePicker.date
+        beginDate.resignFirstResponder()
     }
     func cancelClick() {
-        textField_Date.resignFirstResponder()
+        beginDate.resignFirstResponder()
     }
     
     func doneClickB() {
@@ -73,7 +98,17 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         dateFormatter1.dateStyle = .MediumStyle
         dateFormatter1.timeStyle = .NoStyle
         endDate.text = dateFormatter1.stringFromDate(datePicker.date)
+        endRecord = datePicker.date
         endDate.resignFirstResponder()
+
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day], fromDate: beginRecord, toDate: endRecord, options: [])
+        
+        print(beginRecord)
+        print(endRecord)
+        totalDays.text = String( components.day)
+        print("DAYS LEFT :" , components.day)
+        
     }
     func cancelClickB() {
         endDate.resignFirstResponder()
@@ -82,25 +117,14 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.tag == 1 {
-            self.pickUpDate(self.textField_Date)
+            self.pickUpDate(self.beginDate)
         } else if textField.tag == 2 {
             self.pickUpDate(self.endDate)
         }
         
 
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 
 }

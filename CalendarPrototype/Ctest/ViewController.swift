@@ -42,9 +42,9 @@ class ViewController: UIViewController {
 //            calendarView.contentController.removeCircleLabel(dayView)
 //            calendarView.contentController.removeDotViews(dayView)
             calendarView.contentController.meTrying(dayView)
-
             
         }
+        calendarView.contentController.refreshPresentedMonth()
     }
    
     @IBAction func removeCircleAndDot(sender: AnyObject) {
