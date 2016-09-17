@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70C1C3E1D8E055500722999 /* ReadingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C1C3B1D8E055500722999 /* ReadingPlan.swift */; };
+		B70C1C3F1D8E055500722999 /* DailyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C1C3C1D8E055500722999 /* DailyPlan.swift */; };
+		B70C1C401D8E055500722999 /* BibleIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C1C3D1D8E055500722999 /* BibleIndex.swift */; };
 		B70F18EA1CE8202E009568D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F18E91CE8202E009568D1 /* AppDelegate.swift */; };
 		B70F18EC1CE8202E009568D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F18EB1CE8202E009568D1 /* ViewController.swift */; };
 		B70F18EF1CE8202E009568D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70F18ED1CE8202E009568D1 /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B70C1C3B1D8E055500722999 /* ReadingPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingPlan.swift; path = Ctest/ReadingPlan.swift; sourceTree = "<group>"; };
+		B70C1C3C1D8E055500722999 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyPlan.swift; path = Ctest/DailyPlan.swift; sourceTree = "<group>"; };
+		B70C1C3D1D8E055500722999 /* BibleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BibleIndex.swift; path = Ctest/BibleIndex.swift; sourceTree = "<group>"; };
 		B70F18E61CE8202E009568D1 /* Ctest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70F18E91CE8202E009568D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B70F18EB1CE8202E009568D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 		B70F18DD1CE8202E009568D1 = {
 			isa = PBXGroup;
 			children = (
+				B70C1C3B1D8E055500722999 /* ReadingPlan.swift */,
+				B70C1C3C1D8E055500722999 /* DailyPlan.swift */,
+				B70C1C3D1D8E055500722999 /* BibleIndex.swift */,
 				B70F18FB1CE82085009568D1 /* CVCalendar */,
 				B70F18E81CE8202E009568D1 /* Ctest */,
 				B70F18E71CE8202E009568D1 /* Products */,
@@ -247,10 +256,13 @@
 				B70F191E1CE82085009568D1 /* CVCalendarMonthContentViewController.swift in Sources */,
 				B70F19251CE82085009568D1 /* CVCalendarViewAppearanceDelegate.swift in Sources */,
 				B70F19301CE82085009568D1 /* CVShape.swift in Sources */,
+				B70C1C401D8E055500722999 /* BibleIndex.swift in Sources */,
 				B70F192B1CE82085009568D1 /* CVDate.swift in Sources */,
 				B70F18EC1CE8202E009568D1 /* ViewController.swift in Sources */,
 				B7C6535E1D4D6E8000DAC7F7 /* SettingViewController.swift in Sources */,
+				B70C1C3E1D8E055500722999 /* ReadingPlan.swift in Sources */,
 				B70F191B1CE82085009568D1 /* CVCalendarManager.swift in Sources */,
+				B70C1C3F1D8E055500722999 /* DailyPlan.swift in Sources */,
 				B70F19181CE82085009568D1 /* CVCalendarContentViewController.swift in Sources */,
 				B70F192C1CE82085009568D1 /* CVRange.swift in Sources */,
 				B70F192F1CE82085009568D1 /* CVSet.swift in Sources */,
