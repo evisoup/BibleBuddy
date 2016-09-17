@@ -48,9 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B70C1C3B1D8E055500722999 /* ReadingPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingPlan.swift; path = Ctest/ReadingPlan.swift; sourceTree = "<group>"; };
-		B70C1C3C1D8E055500722999 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyPlan.swift; path = Ctest/DailyPlan.swift; sourceTree = "<group>"; };
-		B70C1C3D1D8E055500722999 /* BibleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BibleIndex.swift; path = Ctest/BibleIndex.swift; sourceTree = "<group>"; };
+		B70C1C3B1D8E055500722999 /* ReadingPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingPlan.swift; sourceTree = "<group>"; };
+		B70C1C3C1D8E055500722999 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPlan.swift; sourceTree = "<group>"; };
+		B70C1C3D1D8E055500722999 /* BibleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleIndex.swift; sourceTree = "<group>"; };
 		B70F18E61CE8202E009568D1 /* Ctest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70F18E91CE8202E009568D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B70F18EB1CE8202E009568D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,9 +104,6 @@
 		B70F18DD1CE8202E009568D1 = {
 			isa = PBXGroup;
 			children = (
-				B70C1C3B1D8E055500722999 /* ReadingPlan.swift */,
-				B70C1C3C1D8E055500722999 /* DailyPlan.swift */,
-				B70C1C3D1D8E055500722999 /* BibleIndex.swift */,
 				B70F18FB1CE82085009568D1 /* CVCalendar */,
 				B70F18E81CE8202E009568D1 /* Ctest */,
 				B70F18E71CE8202E009568D1 /* Products */,
@@ -124,6 +121,9 @@
 		B70F18E81CE8202E009568D1 /* Ctest */ = {
 			isa = PBXGroup;
 			children = (
+				B70C1C3B1D8E055500722999 /* ReadingPlan.swift */,
+				B70C1C3C1D8E055500722999 /* DailyPlan.swift */,
+				B70C1C3D1D8E055500722999 /* BibleIndex.swift */,
 				B70F18E91CE8202E009568D1 /* AppDelegate.swift */,
 				B70F18EB1CE8202E009568D1 /* ViewController.swift */,
 				B7C6535D1D4D6E8000DAC7F7 /* SettingViewController.swift */,
