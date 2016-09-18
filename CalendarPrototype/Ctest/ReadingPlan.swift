@@ -15,8 +15,8 @@ enum CreatingReadingPlanError: ErrorType {
 
 class ReadingPlan : NSObject, NSCoding {
     
-    var startDate: NSDate?
-    var endDate: NSDate?
+    var startDate: NSDate!
+    var endDate: NSDate!
     var startBook: Int = 0
     var endBook: Int = 0
     
