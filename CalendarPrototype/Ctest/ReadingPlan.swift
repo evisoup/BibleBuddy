@@ -34,6 +34,7 @@ class ReadingPlan : NSObject, NSCoding {
     static func CreateReadingPlan(startFromBook: Int, endAtBook: Int, startDate: NSDate, endDate: NSDate) throws -> ReadingPlan {
         let thisPlan = ReadingPlan()
         thisPlan.startDate = startDate
+        thisPlan.endDate = endDate
         thisPlan.timeStamp = NSDate()
         thisPlan.startBook = startFromBook
         thisPlan.endBook = endAtBook
