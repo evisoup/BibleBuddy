@@ -14,9 +14,12 @@ enum CreatingReadingPlanError: ErrorType {
 }
 
 class ReadingPlan : NSObject, NSCoding {
-
-// Insert code here to add functionality to your managed object subclass
+    
     var startDate: NSDate?
+    var endDate: NSDate?
+    var startBook: Int = 0
+    var endBook: Int = 0
+    
     var timeStamp: NSDate?
     var dailyPlans: [DailyPlan] = []
 
@@ -29,9 +32,11 @@ class ReadingPlan : NSObject, NSCoding {
     }
     
     static func CreateReadingPlan(startFromBook: Int, endAtBook: Int, startDate: NSDate, endDate: NSDate) throws -> ReadingPlan {
-        let thisPlan = ReadingPlan();
+        let thisPlan = ReadingPlan()
         thisPlan.startDate = startDate
         thisPlan.timeStamp = NSDate()
+        thisPlan.startBook = startFromBook
+        thisPlan.endBook = endAtBook
         
         var totalChapters = 0
         // Count the total number of chapters from beginBook to endBook
@@ -92,18 +97,52 @@ class ReadingPlan : NSObject, NSCoding {
         return thisPlan
     }
     
+    func todaysPlan(date: NSDate) -> DailyPlan? {
+        let daysInBetween = ReadingPlan.DaysInBetween(startDate!, Date2: date)
+        if daysInBetween <= 0 {
+            return nil
+        } else if (daysInBetween > dailyPlans.count) {
+            return nil
+        } else {
+            return dailyPlans[daysInBetween-1]
+        }
+    }
+    
     func isRead(date: NSDate) -> Bool {
-        return true
+        let daysInBetween = ReadingPlan.DaysInBetween(startDate!, Date2: date)
+        if daysInBetween <= 0 {
+            return false
+        } else if (daysInBetween > dailyPlans.count) {
+            return false
+        } else if (dailyPlans[daysInBetween-1].finish) {
+            return true
+        } else {
+            return false
+        }
     }
     
     func isInPlan(date: NSDate) -> Bool {
-        return true;
+        let daysInBetween = ReadingPlan.DaysInBetween(startDate!, Date2: date)
+        if daysInBetween <= 0 {
+            return false
+        } else if (daysInBetween > dailyPlans.count) {
+            return false
+        } else {
+            return true
+        }
     }
     
     func checkIn(date: NSDate) -> Bool {
-        return true;
+        let daysInBetween = ReadingPlan.DaysInBetween(startDate!, Date2: date)
+        if daysInBetween <= 0 {
+            return false
+        } else if (daysInBetween > dailyPlans.count) {
+            return false
+        } else {
+            dailyPlans[daysInBetween-1].finish = true
+            return true
+        }
     }
-    
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(startDate, forKey: "startDate")
