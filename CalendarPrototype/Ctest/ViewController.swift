@@ -36,6 +36,14 @@ class ViewController: UIViewController {
         monthLabel.text = CVDate(date: NSDate()).globalDescription
     }
     
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("WTF????????")
+        calendarView.contentController.refreshPresentedMonth()
+        
+    }
+    
     @IBAction func checkIn(sender: AnyObject) {
         flag += 1
         if let dayView = selectedDay {
@@ -98,7 +106,21 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     }
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
-        selection.text = dayView.date.commonDescription
+        if let today = dayView.date.convertedDate() {
+            guard let myPlan =  TempPlan.plan else {
+                print("fjg mdzz")
+                return
+            }
+            
+            let book = myPlan.todaysPlan(today)?.startBook
+            let chapter = myPlan.todaysPlan(today)?.startChapter
+            
+            selection.text = BibleIndex.BibleBookName[book!] + " : " + String(chapter!)
+            
+        }
+
+
+        //selection.text = dayView.date.commonDescription
         print("\(dayView.date.convertedDate()   )  is selected!")
         selectedDay = dayView
     }
@@ -165,9 +187,18 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
 //                if day == 15 {
 //                    return false
 //                }
-        if month == 7 && day >= 5 && day <= 18 {
-            return true
+        
+        if let myPlan = TempPlan.plan {
+            guard let today = dayView.date.convertedDate() else {
+                return false
+            }
+            
+            if myPlan.isInPlan(today) { return true }
+            
         }
+//        if month == 7 && day >= 5 && day <= 18 {
+//            return true
+//        }
 
         return false
         

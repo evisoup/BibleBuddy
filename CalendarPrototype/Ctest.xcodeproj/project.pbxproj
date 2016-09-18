@@ -45,6 +45,7 @@
 		B70F19351CE8212A009568D1 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = B70F19331CE8212A009568D1 /* Contents.json */; };
 		B70F19361CE8212A009568D1 /* present-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B70F19341CE8212A009568D1 /* present-100.png */; };
 		B7C6535E1D4D6E8000DAC7F7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C6535D1D4D6E8000DAC7F7 /* SettingViewController.swift */; };
+		B7C764971D8E18E1006CB869 /* TempPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C764961D8E18E1006CB869 /* TempPlan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		B70F19331CE8212A009568D1 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		B70F19341CE8212A009568D1 /* present-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "present-100.png"; sourceTree = "<group>"; };
 		B7C6535D1D4D6E8000DAC7F7 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B7C764961D8E18E1006CB869 /* TempPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempPlan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				B7C6535D1D4D6E8000DAC7F7 /* SettingViewController.swift */,
 				B70F18ED1CE8202E009568D1 /* Main.storyboard */,
 				B70F18F01CE8202E009568D1 /* Assets.xcassets */,
+				B7C764961D8E18E1006CB869 /* TempPlan.swift */,
 				B70F19321CE8212A009568D1 /* present-100.imageset */,
 				B70F18F21CE8202E009568D1 /* LaunchScreen.storyboard */,
 				B70F18F51CE8202E009568D1 /* Info.plist */,
@@ -281,6 +284,7 @@
 				B70F19291CE82085009568D1 /* CVCalendarWeekday.swift in Sources */,
 				B70F19211CE82085009568D1 /* CVCalendarView.swift in Sources */,
 				B70F19281CE82085009568D1 /* CVCalendarWeekContentViewController.swift in Sources */,
+				B7C764971D8E18E1006CB869 /* TempPlan.swift in Sources */,
 				B70F192D1CE82085009568D1 /* CVScrollDirection.swift in Sources */,
 				B70F19221CE82085009568D1 /* CVCalendarViewAnimator.swift in Sources */,
 				B70F191A1CE82085009568D1 /* CVCalendarDayViewControlCoordinator.swift in Sources */,

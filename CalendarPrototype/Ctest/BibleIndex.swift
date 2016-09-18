@@ -143,6 +143,7 @@ public class BibleIndex {
                            1,
                            1,
                            1,
+                           22
     ]
     
     static func getNumOfBooks() -> Int  {

@@ -10,7 +10,10 @@ import UIKit
 
 class SettingViewController: UIViewController, UITextFieldDelegate {
 
-    
+    var datePicker : UIDatePicker!
+    var beginRecord : NSDate!
+    var endRecord: NSDate!
+    var myPlan: ReadingPlan!
     
     
 
@@ -21,9 +24,32 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var planBegin: UILabel!
     @IBOutlet weak var planEnd: UILabel!
     
-    var datePicker : UIDatePicker!
-    var beginRecord : NSDate!
-    var endRecord: NSDate!
+    @IBAction func confirmPlan(sender: AnyObject) {
+
+        do {
+            try myPlan = ReadingPlan.CreateReadingPlan(0, endAtBook: 65, startDate: beginRecord, endDate: endRecord)
+            TempPlan.plan = myPlan
+
+            let dateFormatter1 = NSDateFormatter()
+            dateFormatter1.dateStyle = .MediumStyle
+            dateFormatter1.timeStyle = .NoStyle
+            
+            let myStart = TempPlan.plan.startDate
+            let myEnd = TempPlan.plan.endDate
+            
+            planBegin.text =  "From: " + BibleIndex.BibleBookName[TempPlan.plan.startBook ] + " Date: " + dateFormatter1.stringFromDate(myStart)
+            planEnd.text = "To: " + BibleIndex.BibleBookName[TempPlan.plan.endBook ] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+
+            
+        } catch {
+            //TO-DO: ADD UI ALERT AND CLEAR OUT ALL THE DATE
+            print("Something went wrong!")
+        }
+        
+    }
+    
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +62,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     func pickUpDate(textField : UITextField){
         
         // DatePicker
