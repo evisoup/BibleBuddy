@@ -41,9 +41,6 @@ class ReadingPlan : NSObject, NSCoding {
         return components.day+1 // We add one because the dates are inclusive
     }
     
-    // TODO: There are two problems in this.
-    // 1. We need to convert it to local time zone to see the real date
-    // 2. We need to fix the hour
     static func CreateReadingPlan(startFromBook: Int, endAtBook: Int, startDate: NSDate, endDate: NSDate) throws -> ReadingPlan {
         let thisPlan = ReadingPlan()
         thisPlan.startDate = ClearHour(startDate)
