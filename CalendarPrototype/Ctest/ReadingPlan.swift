@@ -13,14 +13,13 @@ enum CreatingReadingPlanError: ErrorType {
     case TotalReadingDaysNotPositive
 }
 
-class ReadingPlan : NSObject, NSCoding {
+class ReadingPlan : NSObject {
     
     var startDate: NSDate!
     var endDate: NSDate!
     var startBook: Int = 0
     var endBook: Int = 0
     
-    var timeStamp: NSDate?
     var dailyPlans: [DailyPlan] = []
     
     // This function unify hours
@@ -45,7 +44,6 @@ class ReadingPlan : NSObject, NSCoding {
         let thisPlan = ReadingPlan()
         thisPlan.startDate = ClearHour(startDate)
         thisPlan.endDate = ClearHour(endDate)
-        thisPlan.timeStamp = NSDate()
         thisPlan.startBook = startFromBook
         thisPlan.endBook = endAtBook
         
@@ -155,31 +153,55 @@ class ReadingPlan : NSObject, NSCoding {
         }
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(startDate, forKey: "startDate")
-        aCoder.encodeObject(timeStamp, forKey: "timeStamp")
-        aCoder.encodeObject(dailyPlans, forKey: "dailyPlans")
+    func toString() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        let startDateInString = dateFormatter.stringFromDate(self.startDate)
+        let endDateInString = dateFormatter.stringFromDate(self.endDate)
+        var result = startDateInString + ";"
+        result += endDateInString + ";"
+        result += String(startBook) + ";"
+        result += String(endBook) + ";"
+        for dailyPlan in dailyPlans {
+            if dailyPlan.finish {
+                result += "T;"
+            } else {
+                result += "F;"
+            }
+        }
+        
+        return result
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        _ = aDecoder.decodeObjectForKey("startDate") as? NSDate
-        _ = aDecoder.decodeObjectForKey("timeStamp") as? NSDate
-        _ = aDecoder.decodeObjectForKey("dailyPlans") as? [DailyPlan]
+    static func toReadingPlan(planInString : String) -> ReadingPlan {
+        let planArr = planInString.componentsSeparatedByString(";")
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
         
-        self.init()
+        let plan = try! CreateReadingPlan(Int(planArr[2])!, endAtBook: Int(planArr[3])!, startDate: dateFormatter.dateFromString(planArr[0])!, endDate: dateFormatter.dateFromString(planArr[1])!)
+        
+        
+        for i in 0...(plan.dailyPlans.count-1) {
+            if planArr[i+4] == "T" {
+                plan.dailyPlans[i].finish = true
+            }
+        }
+        
+        return plan
     }
     
     func SaveReadingPlan() {
-        let ud = NSUserDefaults.standardUserDefaults()
-        ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(self), forKey: "plan")
+        let stringForm = self.toString()
+        NSUserDefaults.standardUserDefaults().setObject(stringForm, forKey: "plan")
+        print("Save plan");
     }
     
     static func RestoreReadingPlan() -> ReadingPlan? {
-        let ud = NSUserDefaults.standardUserDefaults()
-        if let data = ud.objectForKey("plan") as? NSData {
-            let unarc = NSKeyedUnarchiver(forReadingWithData: data)
-            let readingPlan = unarc.decodeObjectForKey("root") as? ReadingPlan
-            return readingPlan
+        if let planInString = NSUserDefaults.standardUserDefaults().stringForKey("plan") {
+            print("Restore plan successful")
+            return toReadingPlan(planInString)
         }
         return nil
     }
