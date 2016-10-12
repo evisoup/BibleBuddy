@@ -114,6 +114,7 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
             
             let book = myPlan.todaysPlan(today)?.startBook
             let chapter = myPlan.todaysPlan(today)?.startChapter
+            // TODO BUG: Need to check if book and myPlan is nil
             
             selection.text = BibleIndex.BibleBookName[book!] + " : " + String(chapter!)
             
