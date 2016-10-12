@@ -22,19 +22,32 @@ class ReadingPlan : NSObject, NSCoding {
     
     var timeStamp: NSDate?
     var dailyPlans: [DailyPlan] = []
+    
+    // This function unify hours
+    static func ClearHour(date: NSDate) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        let timeStamp = dateFormatter.stringFromDate(date)
+        let newTime = String(timeStamp.characters.dropLast(8)) + "00:00:00"
+        return dateFormatter.dateFromString(newTime)!
+    }
 
     static func DaysInBetween(Date1: NSDate, Date2: NSDate) -> Int
     {
         let cal = NSCalendar.currentCalendar()
         let unit:NSCalendarUnit = .Day
-        let components = cal.components(unit, fromDate: Date1, toDate: Date2, options: [])
+        let components = cal.components(unit, fromDate: ClearHour(Date1), toDate: ClearHour(Date2), options: [])
         return components.day+1 // We add one because the dates are inclusive
     }
     
+    // TODO: There are two problems in this.
+    // 1. We need to convert it to local time zone to see the real date
+    // 2. We need to fix the hour
     static func CreateReadingPlan(startFromBook: Int, endAtBook: Int, startDate: NSDate, endDate: NSDate) throws -> ReadingPlan {
         let thisPlan = ReadingPlan()
-        thisPlan.startDate = startDate
-        thisPlan.endDate = endDate
+        thisPlan.startDate = ClearHour(startDate)
+        thisPlan.endDate = ClearHour(endDate)
         thisPlan.timeStamp = NSDate()
         thisPlan.startBook = startFromBook
         thisPlan.endBook = endAtBook
