@@ -23,6 +23,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var totalDays: UILabel!
     @IBOutlet weak var planBegin: UILabel!
     @IBOutlet weak var planEnd: UILabel!
+    @IBOutlet weak var confirmPlanButton: UIButton!
+
     
     @IBAction func confirmPlan(sender: AnyObject) {
 
@@ -53,6 +55,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        confirmPlanButton.enabled = false 
         
         // Do any additional setup after loading the view.
     }
@@ -86,7 +89,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         var cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(SettingViewController.cancelClick))
         
         if textField.tag == 2 {
-            toolBar.tintColor = UIColor.greenColor()
              doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(SettingViewController.doneClickB))
              spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
              cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(SettingViewController.cancelClickB))
