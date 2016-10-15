@@ -41,9 +41,20 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
             planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
 
             
-        } catch {
+        } catch CreatingReadingPlanError.TotalReadingDaysNotPositive {
             //TO-DO: ADD UI ALERT AND CLEAR OUT ALL THE DATE
             print("Something went wrong!")
+            // create the alert
+            let alert = UIAlertController(title: "Warning", message: "TO needs to be after From!", preferredStyle: .Alert)
+
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+
+            // show the alert
+            presentViewController(alert, animated: true, completion: nil)
+            return
+        } catch {
+            print("The program should not reach here, but I will let it continue")
         }
         
     }
