@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     var shouldShowDaysOut = true
     var animationFinished = true
-    var flag = 10
+
     
     var selectedDay:DayView!
     
@@ -46,14 +46,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func checkIn(sender: AnyObject) {
-        flag += 1
-        if let dayView = selectedDay {
-//            calendarView.contentController.removeCircleLabel(dayView)
-//            calendarView.contentController.removeDotViews(dayView)
-            calendarView.contentController.meTrying(dayView)
-            
+
+//        if let dayView = selectedDay {
+//
+//            calendarView.contentController.meTrying(dayView)
+//            
+//        }
+//        calendarView.contentController.refreshPresentedMonth()
+
+        if let today = selectedDay.date.convertedDate() {
+            guard let myPlan =  ReadingPlan.plan else {
+                return
+            }
+
+            myPlan.checkIn(today)
+            calendarView.contentController.meTrying(selectedDay)
+            calendarView.contentController.refreshPresentedMonth()
+
         }
-        calendarView.contentController.refreshPresentedMonth()
+
+
     }
    
     @IBAction func removeCircleAndDot(sender: AnyObject) {
@@ -108,15 +120,14 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         if let today = dayView.date.convertedDate() {
-            guard let myPlan =  TempPlan.plan else {
-                print("fjg mdzz")
+            guard let myPlan =  ReadingPlan.plan else {
                 return
             }
             
             if let book = myPlan.todaysPlan(today)?.startBook, chapter = myPlan.todaysPlan(today)?.startChapter {
                 selection.text = BibleIndex.BibleBookName[book] + " : " + String(chapter)
             } else {
-                selection.text = "No reading plan content for today. Feel free to read another passage of your choice"
+                selection.text = "No reading plan content for today. Feel free to read another passage"
             }
         }
 
@@ -173,33 +184,14 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     //启动的时候就是用到
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
-        let day = dayView.date.day
-        let month = dayView.date.month
-        let year = dayView.date.year
-//       me
-        ///print("look at me ")
-//        let randomDay = Int(arc4random_uniform(31))
-//        if day == randomDay {
-//            return true
-//        }
-//        
-//        return false
+
         
-//                if day == 15 {
-//                    return false
-//                }
-        
-        if let myPlan = TempPlan.plan {
+        if let myPlan = ReadingPlan.plan {
             guard let today = dayView.date.convertedDate() else {
                 return false
             }
-            
             if myPlan.isInPlan(today) { return true }
-            
         }
-//        if month == 7 && day >= 5 && day <= 18 {
-//            return true
-//        }
 
         return false
         
@@ -207,37 +199,15 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     //启动的时候就是用到
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
-        //print("look at me 2")
-        let red = CGFloat(arc4random_uniform(600) / 255)
-        let green = CGFloat(arc4random_uniform(600) / 255)
-        let blue = CGFloat(arc4random_uniform(600) / 255)
-        
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        //me
-        
-        let day = dayView.date.day
-        let month = dayView.date.month
-        let year = dayView.date.year
-        
-        if month == 7 && day >= 10 && day <= flag {
-            let myC = UIColor.greenColor()
-            return [myC]
-        } else {
-            let myC = UIColor.redColor()
-            return [myC]
+
+        if let myPlan = ReadingPlan.plan {
+            if let today = dayView.date.convertedDate() {
+                if  myPlan.isRead(today) { return [UIColor.greenColor()]}
+            }
+
         }
-    
-        
-        //
-        let numberOfDots = Int(arc4random_uniform(3) + 1)
-        switch(numberOfDots) {
-        case 2:
-            return [color, color]
-        case 3:
-            return [color, color, color]
-        default:
-            return [color] // return 1 dot
-        }
+        return [UIColor.redColor()]
+
     }
     
     func dotMarker(colorOnDayViewChecked dayView: CVCalendarDayView) -> [UIColor] {

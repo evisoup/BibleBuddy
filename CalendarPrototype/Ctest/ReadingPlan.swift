@@ -163,6 +163,7 @@ class ReadingPlan : NSObject {
             return false
         } else {
             dailyPlans[daysInBetween-1].finish = true
+            self.SaveReadingPlan()
             return true
         }
     }
