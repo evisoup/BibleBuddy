@@ -90,10 +90,11 @@ public final class CVCalendarMonthContentViewController: CVCalendarContentViewCo
                 monthViews[previous]?.removeFromSuperview()
                 replaceMonthView(presentedMonth, withIdentifier: previous, animatable: false)
                 replaceMonthView(followingMonth, withIdentifier: presented, animatable: true)
-
                 insertMonthView(getFollowingMonth(followingMonth.date),
                                 withIdentifier: following)
                 self.calendarView.delegate?.didShowNextMonthView?(followingMonth.date)
+                print("scorrled left")
+                reloadMonthViews()
             }
         }
     }
@@ -106,9 +107,10 @@ public final class CVCalendarMonthContentViewController: CVCalendarContentViewCo
                 monthViews[following]?.removeFromSuperview()
                 replaceMonthView(previous, withIdentifier: self.presented, animatable: true)
                 replaceMonthView(presented, withIdentifier: following, animatable: false)
-
                 insertMonthView(getPreviousMonth(previous.date), withIdentifier: self.previous)
                 self.calendarView.delegate?.didShowPreviousMonthView?(previous.date)
+                print("scorrled right")
+                reloadMonthViews()
             }
         }
     }
@@ -415,6 +417,7 @@ extension CVCalendarMonthContentViewController {
         }
 
         lastContentOffset = scrollView.contentOffset.x
+        self.refreshPresentedMonth()
     }
 
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {

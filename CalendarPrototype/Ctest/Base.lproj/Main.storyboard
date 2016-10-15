@@ -92,20 +92,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naL-aC-YXb">
-                                <rect key="frame" x="20" y="437" width="164" height="30"/>
+                                <rect key="frame" x="20" y="513" width="164" height="30"/>
                                 <state key="normal" title="Remove Circle and Dots"/>
                                 <connections>
                                     <action selector="removeCircleAndDot:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dB7-B4-xgU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogu-4z-wdX">
-                                <rect key="frame" x="20" y="408" width="60" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-ze-N7s">
-                                <rect key="frame" x="194" y="437" width="65" height="30"/>
+                                <rect key="frame" x="194" y="513" width="65" height="30"/>
                                 <state key="normal" title="CHECKIN"/>
                                 <connections>
                                     <action selector="checkIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ndj-Vz-jot"/>
@@ -123,6 +117,12 @@
                                     <outlet property="calendarDelegate" destination="vXZ-lx-hvc" id="BGr-mw-JIs"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click a Date to Show Plan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogu-4z-wdX">
+                                <rect key="frame" x="20" y="484" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -134,12 +134,13 @@
                             <constraint firstItem="Hz3-8S-aMR" firstAttribute="leading" secondItem="izK-WF-YDE" secondAttribute="trailing" constant="8" id="Hko-cs-dId"/>
                             <constraint firstItem="oRb-Wa-JqA" firstAttribute="top" secondItem="T1w-UY-QHC" secondAttribute="bottom" constant="10" id="Inc-cL-c0K"/>
                             <constraint firstItem="T1w-UY-QHC" firstAttribute="leading" secondItem="ZPD-eB-kRA" secondAttribute="leading" id="Lhg-3p-WNM"/>
+                            <constraint firstItem="Ogu-4z-wdX" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="MfD-gi-vVg"/>
                             <constraint firstItem="T1w-UY-QHC" firstAttribute="top" secondItem="ZPD-eB-kRA" secondAttribute="bottom" constant="8" symbolic="YES" id="NW4-zP-cws"/>
                             <constraint firstItem="ecA-uZ-EAG" firstAttribute="trailing" secondItem="t2y-Uz-Mr2" secondAttribute="trailing" id="RKD-AT-yeW"/>
                             <constraint firstItem="FwJ-ze-N7s" firstAttribute="baseline" secondItem="naL-aC-YXb" secondAttribute="baseline" id="S0p-Xd-c6g"/>
                             <constraint firstItem="izK-WF-YDE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TxE-T0-Cja"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lzX-jt-Rop" secondAttribute="trailing" id="UC8-fn-77M"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="naL-aC-YXb" secondAttribute="bottom" constant="84" id="V9q-TN-CyI"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="naL-aC-YXb" secondAttribute="bottom" constant="8" symbolic="YES" id="V9q-TN-CyI"/>
                             <constraint firstItem="ZPD-eB-kRA" firstAttribute="top" secondItem="HF3-fY-vSc" secondAttribute="bottom" id="WAr-Ua-wMd"/>
                             <constraint firstItem="xf5-AN-qLk" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="XNU-W1-hVv"/>
                             <constraint firstItem="t2y-Uz-Mr2" firstAttribute="top" secondItem="T1w-UY-QHC" secondAttribute="bottom" id="cWn-ba-zni"/>

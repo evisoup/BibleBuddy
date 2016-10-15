@@ -282,10 +282,12 @@ extension CVCalendarView {
 
     public func loadNextView() {
         contentController.presentNextView(nil)
+        contentController.refreshPresentedMonth()
     }
 
     public func loadPreviousView() {
         contentController.presentPreviousView(nil)
+        contentController.refreshPresentedMonth()
     }
 
     public func changeMode(mode: CalendarMode, completion: () -> () = {}) {

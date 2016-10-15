@@ -39,8 +39,9 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("WTF????????")
-        calendarView.contentController.refreshPresentedMonth()
+        print("viewWillAppear")
+        //calendarView.contentController.refreshPresentedMonth()
+        //calendarView.contentController.presentPreviousView(<#T##view: UIView?##UIView?#>)
         
     }
     
@@ -65,7 +66,7 @@ class ViewController: UIViewController {
     @IBAction func refreshMonth(sender: AnyObject) {
         calendarView.contentController.refreshPresentedMonth()
     }
-    
+    //这里这里
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -112,12 +113,11 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
                 return
             }
             
-            let book = myPlan.todaysPlan(today)?.startBook
-            let chapter = myPlan.todaysPlan(today)?.startChapter
-            // TODO BUG: Need to check if book and myPlan is nil
-            
-            selection.text = BibleIndex.BibleBookName[book!] + " : " + String(chapter!)
-            
+            if let book = myPlan.todaysPlan(today)?.startBook, chapter = myPlan.todaysPlan(today)?.startChapter {
+                selection.text = BibleIndex.BibleBookName[book] + " : " + String(chapter)
+            } else {
+                selection.text = "No reading plan content for today. Feel free to read another passage of your choice"
+            }
         }
 
 
@@ -177,7 +177,7 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
         let month = dayView.date.month
         let year = dayView.date.year
 //       me
-        print("look at me ")
+        ///print("look at me ")
 //        let randomDay = Int(arc4random_uniform(31))
 //        if day == randomDay {
 //            return true
@@ -207,7 +207,7 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     //启动的时候就是用到
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
-        print("look at me 2")
+        //print("look at me 2")
         let red = CGFloat(arc4random_uniform(600) / 255)
         let green = CGFloat(arc4random_uniform(600) / 255)
         let blue = CGFloat(arc4random_uniform(600) / 255)
