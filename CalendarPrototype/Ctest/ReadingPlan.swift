@@ -11,6 +11,7 @@ import Foundation
 
 enum CreatingReadingPlanError: ErrorType {
     case TotalReadingDaysNotPositive
+    case TotoalReadingBooksNotPositive
 }
 
 class ReadingPlan : NSObject {
@@ -55,6 +56,11 @@ class ReadingPlan : NSObject {
     }
     
     static func CreateReadingPlan(startFromBook: Int, endAtBook: Int, startDate: NSDate, endDate: NSDate) throws -> ReadingPlan {
+        // Check if endAtBook is after startFromBook
+        if startFromBook > endAtBook {
+            throw CreatingReadingPlanError.TotoalReadingBooksNotPositive
+        }
+
         let thisPlan = ReadingPlan()
         thisPlan.startDate = ClearHour(startDate)
         thisPlan.endDate = ClearHour(endDate)
@@ -80,7 +86,7 @@ class ReadingPlan : NSObject {
         let reminderChapters = totalChapters%totalReadingDays
         
         // The first book that will be read for today
-        var startBookForCurrentDate = 0
+        var startBookForCurrentDate = startFromBook
         // The first chapter that will be read for today
         var startChapterForCurrentDate = 1
         

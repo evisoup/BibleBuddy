@@ -50,10 +50,18 @@ class SettingViewController: UIViewController, UITextFieldDelegate,UIPickerViewD
 
             
         } catch CreatingReadingPlanError.TotalReadingDaysNotPositive {
-            //TO-DO: ADD UI ALERT AND CLEAR OUT ALL THE DATE
-            print("Something went wrong!")
             // create the alert
-            let alert = UIAlertController(title: "Warning", message: "TO needs to be after From!", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Warning", message: "Invalid date range!", preferredStyle: .Alert)
+
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+
+            // show the alert
+            presentViewController(alert, animated: true, completion: nil)
+            return
+        } catch CreatingReadingPlanError.TotoalReadingBooksNotPositive {
+            // create the alert
+            let alert = UIAlertController(title: "Warning", message: "Invalid book range!", preferredStyle: .Alert)
 
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
