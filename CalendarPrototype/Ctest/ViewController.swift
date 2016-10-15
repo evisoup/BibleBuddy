@@ -122,8 +122,9 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
                 return
             }
             
-            if let book = myPlan.todaysPlan(today)?.startBook, chapter = myPlan.todaysPlan(today)?.startChapter {
-                selection.text = BibleIndex.BibleBookName[book] + " : " + String(chapter)
+            if let book = myPlan.todaysPlan(today)?.startBook, chapter = myPlan.todaysPlan(today)?.startChapter,
+                   booke = myPlan.todaysPlan(today)?.endBook, chaptere = myPlan.todaysPlan(today)?.endChapter{
+                selection.text = "\(BibleIndex.BibleBookName[book] + " : " + String(chapter)) - \(BibleIndex.BibleBookName[booke] + " : " + String(chaptere))"
             } else {
                 selection.text = "No reading plan content for today. Feel free to read another passage"
             }

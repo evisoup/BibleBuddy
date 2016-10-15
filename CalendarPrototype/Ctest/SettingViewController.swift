@@ -39,8 +39,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
             let myStart = myPlan.startDate
             let myEnd = myPlan.endDate
             
-            planBegin.text =  "From: " + BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
-            planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+            planBegin.text =  BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
+            planEnd.text = BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+            confirmPlanButton.enabled = false
 
             
         } catch CreatingReadingPlanError.TotalReadingDaysNotPositive {
@@ -78,8 +79,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
             let myStart = myPlan.startDate
             let myEnd = myPlan.endDate
 
-            planBegin.text =  "From: " + BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
-            planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+            planBegin.text =  BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
+            planEnd.text =  BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
         }
     }
     
@@ -136,6 +137,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doneClickB() {
+        confirmPlanButton.enabled = true
         let dateFormatter1 = NSDateFormatter()
         dateFormatter1.dateStyle = .MediumStyle
         dateFormatter1.timeStyle = .NoStyle
@@ -148,7 +150,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         
         print(beginRecord)
         print(endRecord)
-        totalDays.text = String( components.day)
+        totalDays.text = " Days in Total:  \(String( components.day))"
         print("DAYS LEFT :" , components.day)
         
     }
