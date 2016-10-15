@@ -55,6 +55,18 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        // Load existing reading plan and display it
+        if let myPlan = ReadingPlan.plan {
+            let dateFormatter1 = NSDateFormatter()
+            dateFormatter1.dateStyle = .MediumStyle
+            dateFormatter1.timeStyle = .NoStyle
+
+            let myStart = myPlan.startDate
+            let myEnd = myPlan.endDate
+
+            planBegin.text =  "From: " + BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
+            planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+        }
     }
     
     override func didReceiveMemoryWarning() {
