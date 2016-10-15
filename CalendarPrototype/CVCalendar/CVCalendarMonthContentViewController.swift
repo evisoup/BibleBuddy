@@ -94,7 +94,6 @@ public final class CVCalendarMonthContentViewController: CVCalendarContentViewCo
                                 withIdentifier: following)
                 self.calendarView.delegate?.didShowNextMonthView?(followingMonth.date)
                 print("scorrled left")
-                reloadMonthViews()
             }
         }
     }
@@ -110,7 +109,6 @@ public final class CVCalendarMonthContentViewController: CVCalendarContentViewCo
                 insertMonthView(getPreviousMonth(previous.date), withIdentifier: self.previous)
                 self.calendarView.delegate?.didShowPreviousMonthView?(previous.date)
                 print("scorrled right")
-                reloadMonthViews()
             }
         }
     }
@@ -421,6 +419,7 @@ extension CVCalendarMonthContentViewController {
     }
 
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        refreshMonthView()
         if let presented = monthViews[presented] {
             prepareTopMarkersOnMonthView(presented, hidden: true)
         }
@@ -455,6 +454,21 @@ extension CVCalendarMonthContentViewController {
 
         for monthView in monthViews.values {
             prepareTopMarkersOnMonthView(monthView, hidden: false)
+        }
+    }
+}
+
+extension CVCalendarMonthContentViewController {
+    public func refreshMonthView() {
+        for monthView in monthViews.values {
+            for weekV in monthView.weekViews {
+                for dayView in weekV.dayViews {
+                    removeCircleLabel(dayView)
+                    dayView.setupDotMarker()
+                    dayView.preliminarySetup()
+                    dayView.topMarkerSetup()
+                }
+            }
         }
     }
 }
