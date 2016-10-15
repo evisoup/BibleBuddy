@@ -43,9 +43,20 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
             planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
 
             
-        } catch {
+        } catch CreatingReadingPlanError.TotalReadingDaysNotPositive {
             //TO-DO: ADD UI ALERT AND CLEAR OUT ALL THE DATE
             print("Something went wrong!")
+            // create the alert
+            let alert = UIAlertController(title: "Warning", message: "TO needs to be after From!", preferredStyle: .Alert)
+
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+
+            // show the alert
+            presentViewController(alert, animated: true, completion: nil)
+            return
+        } catch {
+            print("The program should not reach here, but I will let it continue")
         }
         
     }
@@ -58,6 +69,18 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         confirmPlanButton.enabled = false 
         
         // Do any additional setup after loading the view.
+        // Load existing reading plan and display it
+        if let myPlan = ReadingPlan.plan {
+            let dateFormatter1 = NSDateFormatter()
+            dateFormatter1.dateStyle = .MediumStyle
+            dateFormatter1.timeStyle = .NoStyle
+
+            let myStart = myPlan.startDate
+            let myEnd = myPlan.endDate
+
+            planBegin.text =  "From: " + BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
+            planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+        }
     }
     
     override func didReceiveMemoryWarning() {
