@@ -1,3 +1,3 @@
 # BibleReadingPlanner
 
-Developed exclusively for Ambassadors for Christ in Canada
+Developed exclusively for _**Ambassadors for Christ**_ in Canada
