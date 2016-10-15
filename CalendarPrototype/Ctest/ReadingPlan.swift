@@ -22,6 +22,17 @@ class ReadingPlan : NSObject {
     
     var dailyPlans: [DailyPlan] = []
     
+    // Singleton for the current plan
+    static private var planInstance : ReadingPlan? = nil
+    static var plan : ReadingPlan? {
+        get {
+            if planInstance == nil {
+                planInstance = ReadingPlan.RestoreReadingPlan();
+            }
+            return planInstance
+        }
+    }
+    
     // This function unify hours
     static func ClearHour(date: NSDate) -> NSDate {
         let dateFormatter = NSDateFormatter()
@@ -153,7 +164,7 @@ class ReadingPlan : NSObject {
         }
     }
     
-    func toString() -> String {
+    private func toString() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
@@ -174,7 +185,7 @@ class ReadingPlan : NSObject {
         return result
     }
     
-    static func toReadingPlan(planInString : String) -> ReadingPlan {
+    private static func toReadingPlan(planInString : String) -> ReadingPlan {
         let planArr = planInString.componentsSeparatedByString(";")
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -196,6 +207,8 @@ class ReadingPlan : NSObject {
         let stringForm = self.toString()
         NSUserDefaults.standardUserDefaults().setObject(stringForm, forKey: "plan")
         print("Save plan");
+        ReadingPlan.plan = self
+        
     }
     
     static func RestoreReadingPlan() -> ReadingPlan? {

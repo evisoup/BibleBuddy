@@ -28,17 +28,17 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
 
         do {
             try myPlan = ReadingPlan.CreateReadingPlan(0, endAtBook: 65, startDate: beginRecord, endDate: endRecord)
-            TempPlan.plan = myPlan
 
+            myPlan.SaveReadingPlan()
             let dateFormatter1 = NSDateFormatter()
             dateFormatter1.dateStyle = .MediumStyle
             dateFormatter1.timeStyle = .NoStyle
             
-            let myStart = TempPlan.plan.startDate
-            let myEnd = TempPlan.plan.endDate
+            let myStart = myPlan.startDate
+            let myEnd = myPlan.endDate
             
-            planBegin.text =  "From: " + BibleIndex.BibleBookName[TempPlan.plan.startBook ] + " Date: " + dateFormatter1.stringFromDate(myStart)
-            planEnd.text = "To: " + BibleIndex.BibleBookName[TempPlan.plan.endBook ] + " Date: " + dateFormatter1.stringFromDate(myEnd)
+            planBegin.text =  "From: " + BibleIndex.BibleBookName[myPlan.startBook] + " Date: " + dateFormatter1.stringFromDate(myStart)
+            planEnd.text = "To: " + BibleIndex.BibleBookName[myPlan.endBook] + " Date: " + dateFormatter1.stringFromDate(myEnd)
 
             
         } catch {
