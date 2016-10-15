@@ -45,12 +45,6 @@ class ViewController: UIViewController {
     
     @IBAction func checkIn(sender: AnyObject) {
 
-//        if let dayView = selectedDay {
-//
-//            calendarView.contentController.meTrying(dayView)
-//            
-//        }
-//        calendarView.contentController.refreshPresentedMonth()
 
         if let today = selectedDay.date.convertedDate() {
             guard let myPlan =  ReadingPlan.plan else {
@@ -60,7 +54,6 @@ class ViewController: UIViewController {
             myPlan.checkIn(today)
             calendarView.contentController.meTrying(selectedDay)
             calendarView.contentController.refreshPresentedMonth()
-
         }
 
 
@@ -83,7 +76,7 @@ class ViewController: UIViewController {
         calendarView.commitCalendarViewUpdate()
         
         //change week/month view mode based on screen size
-        if UIScreen.mainScreen().bounds.size.height <= 568.0 {
+        if UIScreen.mainScreen().bounds.size.height <= 480.0 {
             calendarView.changeMode(.WeekView)
         }
         
@@ -132,10 +125,8 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
 
 
         //selection.text = dayView.date.commonDescription
-        print("\(dayView.date.convertedDate()   )  is selected!")
         selectedDay = dayView
     }
-    ///这里有printing
     
     
     func presentedDateUpdated(date: CVDate) {
