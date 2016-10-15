@@ -31,6 +31,9 @@ class ReadingPlan : NSObject {
             }
             return planInstance
         }
+        set {
+            planInstance = newValue
+        }
     }
     
     // This function unify hours
