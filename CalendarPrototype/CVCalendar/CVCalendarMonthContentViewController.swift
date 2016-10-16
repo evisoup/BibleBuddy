@@ -415,7 +415,6 @@ extension CVCalendarMonthContentViewController {
         }
 
         lastContentOffset = scrollView.contentOffset.x
-        self.refreshPresentedMonth()
     }
 
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {

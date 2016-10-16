@@ -89,18 +89,6 @@ extension CVCalendarContentViewController {
 }
 
 
-extension CVCalendarContentViewController {
-    public func meTrying(dayView: CVCalendarDayView) {
-
-        //dayView.setupDotMarker()
-        dayView.myDot()
-        //dayView.preliminarySetup()
-
-
-    }
-}
-
-
 
 
 // MARK: Delete circle views (in effect refreshing the dayView circle)

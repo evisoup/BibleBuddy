@@ -40,7 +40,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
-        calendarView.contentController.refreshPresentedMonth()        
+        if let controller = calendarView.contentController as? CVCalendarMonthContentViewController {
+            controller.refreshMonthView()
+        }
     }
     
     @IBAction func checkIn(sender: AnyObject) {
@@ -52,7 +54,6 @@ class ViewController: UIViewController {
             }
 
             myPlan.checkIn(today)
-            calendarView.contentController.meTrying(selectedDay)
             calendarView.contentController.refreshPresentedMonth()
         }
 

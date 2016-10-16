@@ -302,68 +302,6 @@ extension CVCalendarDayView {
             }
         }
     }
-    
-    public func myDot() {
-        
-        
-        for (index, dotMarker) in dotMarkers.enumerate() {
-            dotMarker?.removeFromSuperview()
-            dotMarkers[index] = nil
-        }
-        
-        
-        
-        if let delegate = calendarView.delegate {
-            if let shouldShow = delegate.dotMarker?(shouldShowOnDayView: self) where shouldShow {
-                
-                var (width, height): (CGFloat, CGFloat) = (13, 13)
-                if let size = delegate.dotMarker?(sizeOnDayView: self) {
-                    (width, height) = (size, size)
-                }
-                let colors = isOut ? [.grayColor()] : delegate.dotMarker?(colorOnDayView: self)
-                print(colors)
-                var yOffset = bounds.height / 5
-                if let y = delegate.dotMarker?(moveOffsetOnDayView: self) {
-                    yOffset = y
-                }
-                let y = CGRectGetMidY(frame) + yOffset
-                let markerFrame = CGRect(x: 0, y: 0, width: width, height: height)
-                
-                if colors!.count > 3 {
-                    assert(false, "Only 3 dot markers allowed per day")
-                }
-                
-                for (index, color) in (colors!).enumerate() {
-                    var x: CGFloat = 0
-                    switch colors!.count {
-                    case 1:
-                        x = frame.width / 2
-                    case 2:
-                        x = frame.width * CGFloat(2+index)/5.00 // frame.width * (2/5, 3/5)
-                    case 3:
-                        x = frame.width * CGFloat(2+index)/6.00 // frame.width * (1/3, 1/2, 2/3)
-                    default:
-                        break
-                    }
-                    
-                    let dotMarker = CVAuxiliaryView(dayView: self,
-                                                    rect: markerFrame, shape: .Circle)
-                    dotMarker.fillColor = UIColor.greenColor()
-                    print("should change to green")
-                    dotMarker.center = CGPoint(x: x, y: y)
-                    insertSubview(dotMarker, atIndex: 0)
-                    
-                    dotMarker.setNeedsDisplay()
-                    dotMarkers.append(dotMarker)
-                }
-                
-                let coordinator = calendarView.coordinator
-                if self == coordinator.selectedDayView {
-                    moveDotMarkerBack(false, coloring: false)
-                }
-            }
-        }
-    }
 }
 
 // MARK: - Dot marker movement
