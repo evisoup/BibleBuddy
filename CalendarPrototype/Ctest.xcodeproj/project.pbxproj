@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C7AAAA71DB301F1001B67DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AAAA61DB301F1001B67DD /* Assets.xcassets */; };
 		B70C1C3E1D8E055500722999 /* ReadingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C1C3B1D8E055500722999 /* ReadingPlan.swift */; };
 		B70C1C3F1D8E055500722999 /* DailyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C1C3C1D8E055500722999 /* DailyPlan.swift */; };
 		B70C1C401D8E055500722999 /* BibleIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C1C3D1D8E055500722999 /* BibleIndex.swift */; };
 		B70F18EA1CE8202E009568D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F18E91CE8202E009568D1 /* AppDelegate.swift */; };
 		B70F18EC1CE8202E009568D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F18EB1CE8202E009568D1 /* ViewController.swift */; };
 		B70F18EF1CE8202E009568D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70F18ED1CE8202E009568D1 /* Main.storyboard */; };
-		B70F18F11CE8202E009568D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70F18F01CE8202E009568D1 /* Assets.xcassets */; };
 		B70F18F41CE8202E009568D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70F18F21CE8202E009568D1 /* LaunchScreen.storyboard */; };
 		B70F19171CE82085009568D1 /* CVAuxiliaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F18FC1CE82085009568D1 /* CVAuxiliaryView.swift */; };
 		B70F19181CE82085009568D1 /* CVCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F18FD1CE82085009568D1 /* CVCalendarContentViewController.swift */; };
@@ -49,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C7AAAA61DB301F1001B67DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B70C1C3B1D8E055500722999 /* ReadingPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingPlan.swift; sourceTree = "<group>"; };
 		B70C1C3C1D8E055500722999 /* DailyPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPlan.swift; sourceTree = "<group>"; };
 		B70C1C3D1D8E055500722999 /* BibleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleIndex.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		B70F18E91CE8202E009568D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B70F18EB1CE8202E009568D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B70F18EE1CE8202E009568D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B70F18F01CE8202E009568D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B70F18F31CE8202E009568D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B70F18F51CE8202E009568D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B70F18FC1CE82085009568D1 /* CVAuxiliaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVAuxiliaryView.swift; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 				B70F18EB1CE8202E009568D1 /* ViewController.swift */,
 				B7C6535D1D4D6E8000DAC7F7 /* SettingViewController.swift */,
 				B70F18ED1CE8202E009568D1 /* Main.storyboard */,
-				B70F18F01CE8202E009568D1 /* Assets.xcassets */,
 				B7C764961D8E18E1006CB869 /* TempPlan.swift */,
+				4C7AAAA61DB301F1001B67DD /* Assets.xcassets */,
 				B70F19321CE8212A009568D1 /* present-100.imageset */,
 				B70F18F21CE8202E009568D1 /* LaunchScreen.storyboard */,
 				B70F18F51CE8202E009568D1 /* Info.plist */,
@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					B70F18E51CE8202E009568D1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = YM22SMJAVG;
 					};
 				};
 			};
@@ -243,9 +244,9 @@
 			files = (
 				B70F18F41CE8202E009568D1 /* LaunchScreen.storyboard in Resources */,
 				B70F19361CE8212A009568D1 /* present-100.png in Resources */,
-				B70F18F11CE8202E009568D1 /* Assets.xcassets in Resources */,
 				B70F18EF1CE8202E009568D1 /* Main.storyboard in Resources */,
 				B70F19351CE8212A009568D1 /* Contents.json in Resources */,
+				4C7AAAA71DB301F1001B67DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,10 +404,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = YM22SMJAVG;
 				INFOPLIST_FILE = Ctest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evisoup.ctest.Ctest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -415,10 +419,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = YM22SMJAVG;
 				INFOPLIST_FILE = Ctest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evisoup.ctest.Ctest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

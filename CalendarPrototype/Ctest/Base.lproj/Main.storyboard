@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ETg-ZY-xQp">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ETg-ZY-xQp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -19,14 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="January, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-AN-qLk">
-                                <frame key="frameInset" minX="232" minY="20" width="136" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-AN-qLk">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-eB-kRA" customClass="CVCalendarMenuView" customModule="Ctest" customModuleProvider="target">
-                                <frame key="frameInset" minX="20" minY="53" width="560" height="15"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-eB-kRA" customClass="CVCalendarMenuView" customModule="Ctest" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="dzK-Lh-A1l"/>
                                 </constraints>
@@ -34,15 +32,13 @@
                                     <outlet property="menuViewDelegate" destination="vXZ-lx-hvc" id="S19-Z5-mn8"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-ze-N7s">
-                                <frame key="frameInset" minX="20" minY="513" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-ze-N7s">
                                 <state key="normal" title="CHECKIN"/>
                                 <connections>
                                     <action selector="checkIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ndj-Vz-jot"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-UY-QHC" customClass="CVCalendarView" customModule="Ctest" customModuleProvider="target">
-                                <frame key="frameInset" minX="20" minY="76" width="560" height="300"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-UY-QHC" customClass="CVCalendarView" customModule="Ctest" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="3oZ-He-brt">
                                         <variation key="heightClass=regular-widthClass=regular" constant="480"/>
@@ -53,8 +49,7 @@
                                     <outlet property="calendarDelegate" destination="vXZ-lx-hvc" id="BGr-mw-JIs"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Click a Date to Show Plan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogu-4z-wdX">
-                                <frame key="frameInset" minX="20" minY="482" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click a Date to Show Plan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogu-4z-wdX">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,7 +72,7 @@
                             <constraint firstItem="FwJ-ze-N7s" firstAttribute="top" secondItem="Ogu-4z-wdX" secondAttribute="bottom" constant="10" id="ofo-vN-Khm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" image="Today Filled-20" id="au6-q0-fK0"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Today Filled-50" id="au6-q0-fK0"/>
                     <connections>
                         <outlet property="calendarView" destination="T1w-UY-QHC" id="D3D-pv-Xhz"/>
                         <outlet property="menuView" destination="ZPD-eB-kRA" id="zjt-49-rDh"/>
@@ -173,20 +168,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="认识耶和华是智慧的开端" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2F-RR-UkE">
-                                <frame key="frameInset" minX="196" minY="288" width="209" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="认识耶和华是智慧的开端" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2F-RR-UkE">
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="箴言9:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPJ-Hh-yAh">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="D2F-RR-UkE" firstAttribute="centerX" secondItem="gjR-VX-GtM" secondAttribute="centerX" id="Je8-Iz-k7g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fPJ-Hh-yAh" secondAttribute="trailing" id="Whj-zM-W2W"/>
+                            <constraint firstItem="fPJ-Hh-yAh" firstAttribute="leading" secondItem="gjR-VX-GtM" secondAttribute="leadingMargin" id="Yph-jT-Edj"/>
                             <constraint firstItem="D2F-RR-UkE" firstAttribute="centerY" secondItem="gjR-VX-GtM" secondAttribute="centerY" id="qLT-sh-gq8"/>
+                            <constraint firstItem="fPJ-Hh-yAh" firstAttribute="top" secondItem="D2F-RR-UkE" secondAttribute="bottom" constant="31" id="xWW-zB-JRV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Quote" image="Quote Filled-20" id="CZh-cz-xiy"/>
+                    <tabBarItem key="tabBarItem" title="Quote" image="Quote Filled-50" id="CZh-cz-xiy"/>
                     <navigationItem key="navigationItem" id="p2u-79-CWX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PU-xj-SU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -205,8 +207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ifA-Tt-b4Y">
-                                <frame key="frameInset" minX="20" minY="40" width="343" height="302"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ifA-Tt-b4Y">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vg-Ep-IgE">
                                         <attributedString key="attributedText">
@@ -265,8 +266,7 @@
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="8" left="14" bottom="8" right="8"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-Nt-Gna">
-                                <frame key="frameInset" minX="20" minY="378" width="343" height="171"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-Nt-Gna">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLP-fY-BPJ">
                                         <attributedString key="attributedText">
@@ -319,7 +319,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Plan" image="Survey Filled-20" id="2zU-eb-qqO"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="Survey Filled-50" id="2zU-eb-qqO"/>
                     <connections>
                         <outlet property="beginChap" destination="Bdj-m0-0yC" id="2El-dk-Ugi"/>
                         <outlet property="beginDate" destination="NJ2-q7-ktq" id="iEI-Pf-OXp"/>
@@ -395,7 +395,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.27722231217616577" green="0.27722231217616577" blue="0.27722231217616577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.91764705882352937" green="0.0" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -429,9 +429,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Quote Filled-20" width="20" height="20"/>
-        <image name="Survey Filled-20" width="20" height="20"/>
-        <image name="Today Filled-20" width="20" height="20"/>
+        <image name="Quote Filled-50" width="28" height="28"/>
+        <image name="Survey Filled-50" width="28" height="28"/>
+        <image name="Today Filled-50" width="28" height="28"/>
     </resources>
     <color key="tintColor" red="0.94555537564766845" green="0.0039068454870021131" blue="0.25157223146588953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
